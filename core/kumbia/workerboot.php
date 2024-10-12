@@ -10,7 +10,7 @@
  * @category   Kumbia
  * @package    Core
  *
- * @copyright  Copyright (c) 2005 - 2021 KumbiaPHP Team (http://www.kumbiaphp.com)
+ * @copyright  Copyright (c) 2005 - 2023 KumbiaPHP Team (http://www.kumbiaphp.com)
  * @license    https://github.com/KumbiaPHP/KumbiaPHP/blob/master/LICENSE   New BSD License
  */
 
@@ -24,7 +24,6 @@
 
 require_once CORE_PATH.'../../autoload.php';
 
-use Workerman\Protocols\Http;
 use Workerman\Lib\Timer;
 
 // Iniciar el buffer de salida
@@ -61,7 +60,7 @@ require APP_PATH.'libs/view.php';
 function kumbiaSend() {
     ob_start();ob_start();
     View::render(StaticRouter::execute($_SERVER['REQUEST_URI']));
-    Http::header(WorkerTimer::$date);
+    header(WorkerTimer::$date);
     if (ob_get_level() > 1) {
         ob_end_flush();
     }

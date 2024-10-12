@@ -10,7 +10,7 @@
  * @category   Kumbia
  * @package    Router
  *
- * @copyright  Copyright (c) 2005 - 2021 KumbiaPHP Team (http://www.kumbiaphp.com)
+ * @copyright  Copyright (c) 2005 - 2023 KumbiaPHP Team (http://www.kumbiaphp.com)
  * @license    https://github.com/KumbiaPHP/KumbiaPHP/blob/master/LICENSE   New BSD License
  */
 
@@ -52,7 +52,7 @@ class StaticRouter extends Router
     protected static function dispatch($cont)
     {
         self::$routes[self::$vars['route']] = 
-                            [ 'name' => get_class($cont), // in php 5.5 try ::class
+                            [ 'name' => $cont::class,
                             'vars' => self::$vars ];
         if (\count(self::$routes) > 256) {
             unset(self::$routes[key(self::$routes)]);

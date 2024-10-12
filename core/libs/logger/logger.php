@@ -10,7 +10,7 @@
  * @category   Kumbia
  * @package    Logger
  *
- * @copyright  Copyright (c) 2005 - 2021 KumbiaPHP Team (http://www.kumbiaphp.com)
+ * @copyright  Copyright (c) 2005 - 2023 KumbiaPHP Team (http://www.kumbiaphp.com)
  * @license    https://github.com/KumbiaPHP/KumbiaPHP/blob/master/LICENSE   New BSD License
  */
 
@@ -125,7 +125,7 @@ abstract class Logger
      * @param string|array $msg
      * @param string $name_log
      */
-    public static function log(string $type = 'DEBUG', string|array $msg, string $name_log): void
+    public static function log(string $type = 'DEBUG', string|array $msg = '', string $name_log = ''): void
     {
         if (is_array($msg)) {
             $msg = print_r($msg, true);
@@ -300,7 +300,7 @@ abstract class Logger
      * @param string|array $msg
      * @param string $name_log
      */
-    public static function custom(string $type = 'CUSTOM', string|array $msg, string $name_log = ''): void
+    public static function custom(string $type = 'CUSTOM', string|array $msg = '', string $name_log = ''): void
     {
         self::log($type, $msg, $name_log);
     }

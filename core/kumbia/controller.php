@@ -10,7 +10,7 @@
  * @category   Kumbia
  * @package    Controller
  *
- * @copyright  Copyright (c) 2005 - 2021 KumbiaPHP Team (http://www.kumbiaphp.com)
+ * @copyright  Copyright (c) 2005 - 2023 KumbiaPHP Team (http://www.kumbiaphp.com)
  * @license    https://github.com/KumbiaPHP/KumbiaPHP/blob/master/LICENSE   New BSD License
  */
 
@@ -20,6 +20,7 @@
  * @category   Kumbia
  * @package    Controller
  */
+#[\AllowDynamicProperties]
 abstract class Controller
 {
 
@@ -54,12 +55,6 @@ abstract class Controller
      * @var bool
      */
     public $limit_params = true;
-    /**
-     * Nombre del scaffold a usar
-     *
-     * @var string
-     */
-    public string $scaffold = '';
 
     /**
      * Data disponble para mostrar
@@ -68,20 +63,13 @@ abstract class Controller
      */
     public $data;
 
-    /**
-     * Constructor
-     *
-     * @param array $args
-     */
     public function __construct(array $args)
     {
-        /*modulo al que pertenece el controlador*/
         $this->module_name = $args['module'];
         $this->controller_name = $args['controller'];
         $this->parameters = $args['parameters'];
         $this->action_name = $args['action'];
-        View::select($args['action']);
-        View::setPath($args['controller_path']);
+        View::init($args['action'], $args['controller_path']);
     }
 
     /**

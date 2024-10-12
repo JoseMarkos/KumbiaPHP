@@ -7,7 +7,7 @@
  * This source file is subject to the new BSD license that is bundled
  * with this package in the file LICENSE.
  *
- * @copyright  Copyright (c) 2005 - 2021 KumbiaPHP Team (http://www.kumbiaphp.com)
+ * @copyright  Copyright (c) 2005 - 2023 KumbiaPHP Team (http://www.kumbiaphp.com)
  * @license    https://github.com/KumbiaPHP/KumbiaPHP/blob/master/LICENSE   New BSD License
  */
 
@@ -64,7 +64,7 @@ define('APP_PATH', dirname(__DIR__).'/app/');
  * - Ruta al directorio que contiene el núcleo de Kumbia (por defecto la ruta al directorio core)
  * - En producción, es recomendable ponerla manual usando const
  */
-define('CORE_PATH', dirname(dirname(APP_PATH)).'/core/');
+define('CORE_PATH', dirname(APP_PATH, 2).'/core/');
 //const CORE_PATH = '/path/to/core/';
 
 /*
